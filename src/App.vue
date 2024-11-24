@@ -1,28 +1,25 @@
 <template>
-  <div class="content">
-    <h1>Rsbuild with Vue</h1>
-    <p>Start building amazing things with Rsbuild.</p>
-  </div>
+  <c-config-provider>
+    <c-layout :name="layoutName">
+      <router-view />
+    </c-layout>
+  </c-config-provider>
 </template>
 
-<style scoped>
-.content {
-  display: flex;
-  min-height: 100vh;
-  line-height: 1.1;
-  text-align: center;
-  flex-direction: column;
-  justify-content: center;
-}
+<script setup lang="ts">
+const route = useRoute();
 
-.content h1 {
-  font-size: 3.6rem;
-  font-weight: 700;
-}
+const layoutName = ref('default');
 
-.content p {
-  font-size: 1.2rem;
-  font-weight: 400;
-  opacity: 0.5;
-}
-</style>
+watch(
+  () => route.path,
+  () => {
+    const { layout = 'default' } = route.meta;
+    if (layout === 'inherit') return;
+    if (layout !== layoutName.value) {
+      layoutName.value = layout;
+    }
+  },
+  { immediate: true },
+);
+</script>
