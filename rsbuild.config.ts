@@ -15,6 +15,7 @@ export default defineConfig({
   plugins: [pluginVue(), pluginSass()],
   html: {
     title: parsed.APP_TITLE,
+    meta: [{ name: { name: 'naive-ui-style' } }],
   },
   source: {
     define: publicVars,

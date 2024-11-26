@@ -1,7 +1,9 @@
 <template>
   <n-config-provider
     abstract
+    inline-theme-disabled
     preflight-style-disabled
+    :breakpoints="breakpoints"
     :date-locale="dateZhCN"
     :locale="zhCN"
   >
@@ -15,4 +17,5 @@
 
 <script setup lang="ts">
 import { dateZhCN, zhCN } from 'naive-ui';
+import breakpoints from './breakpoints';
 </script>

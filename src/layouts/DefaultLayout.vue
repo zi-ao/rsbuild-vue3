@@ -1,6 +1,16 @@
 <template>
-  <div class="min-h-100vh">
-    <slot />
+  <div class="flex flex-col min-h-100vh">
+    <header class="shadow-sm">
+      <nav class="px-3 max-w-7xl mx-auto s:px-4">1231231</nav>
+    </header>
+    <div class="flex-auto">
+      <div class="px-3 max-w-7xl mx-auto s:px-4">
+        <slot />
+      </div>
+    </div>
+    <footer class="text-white py-4 px-3 bg-gray-700">
+      <div class="px-3 max-w-7xl mx-auto s:px-4">12312312</div>
+    </footer>
   </div>
 </template>
 
@@ -14,7 +24,6 @@ onMounted(() => {
   appStore.register({
     start: () => {
       loadingBar.start();
-      console.log(111);
     },
     finish: () => {
       loadingBar.finish();
