@@ -6,6 +6,8 @@
     :breakpoints="breakpoints"
     :date-locale="dateZhCN"
     :locale="zhCN"
+    :theme="appStore.isDark ? darkTheme : null"
+    :theme-overrides="appStore.isDark ? darkThemeOverrides : lightThemeOverrides"
   >
     <n-global-style />
 
@@ -16,6 +18,9 @@
 </template>
 
 <script setup lang="ts">
-import { dateZhCN, zhCN } from 'naive-ui';
+import { darkTheme, dateZhCN, zhCN } from 'naive-ui';
 import breakpoints from './breakpoints';
+import { darkThemeOverrides, lightThemeOverrides } from './theme-overrides';
+
+const appStore = useAppStore();
 </script>

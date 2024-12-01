@@ -1,6 +1,6 @@
 <template>
-  <div class="flex flex-col min-h-100vh bg-slate-50">
-    <header class="shadow-sm py-3 sticky top-0 z-10 bg-white">
+  <div class="flex flex-col min-h-100vh light:bg-slate-50">
+    <header class="shadow-sm py-3 sticky top-0 z-10 bg-white dark:bg-slate-800">
       <nav class="container flex">
         <router-link
           to="/"
@@ -22,12 +22,12 @@
         </n-button>
 
         <div
-          class="flex flex-col left-auto w-sm max-w-95% bg-white duration-300 fixed inset-0 z-10 m:static m:flex-1"
+          class="nav-content"
           :class="showNav || !isMiniScreen ? 'translate-x-0' : 'translate-x-100%'"
         >
           <div
             v-if="isMiniScreen"
-            class="text-xl flex py-3 px-3 border-b"
+            class="text-xl flex pt-3 px-3 dark:border-slate-700"
           >
             <h4 class="leading-10">LOGO</h4>
             <n-button
@@ -41,9 +41,9 @@
               />
             </n-button>
           </div>
-          <div class="flex flex-col py-3 px-3 flex-auto m:flex-row m:py-0 m:pr-0 m:pl-8">
-            <div class="flex -mx-2 m:inline-flex">
-              <div class="basis-1/2 px-2 m:basis-auto">
+          <div class="flex flex-col pb-3 px-3 flex-auto m:flex-row m:py-0 m:pr-0 m:pl-10">
+            <div class="nav-list">
+              <div class="nav-item">
                 <router-link
                   to="/"
                   class="block leading-10"
@@ -51,7 +51,7 @@
                   首页
                 </router-link>
               </div>
-              <div class="basis-1/2 px-2 m:basis-auto">
+              <div class="nav-item">
                 <router-link
                   to="/about"
                   class="block leading-10"
@@ -61,20 +61,28 @@
               </div>
             </div>
 
-            <div class="flex -mx-2 mt-3 pt-3 border-t m:inline-flex m:ml-auto m:mt-0 m:pt-0 m:border-0">
-              <div class="basis-1/2 px-2 m:basis-auto">
+            <div class="nav-list m:ml-auto">
+              <div class="nav-item">
                 <n-button
                   icon-placement="left"
                   class="w-full mt-3px px-2 h-34px"
+                  @click="appStore.toggleDark()"
                 >
                   <template #icon>
                     <n-icon
+                      v-if="appStore.isDark"
                       :component="SunnyOutline"
                       :size="18"
                     />
-                    <!-- <n-icon :component="MoonOutline" :size="24" /> -->
+                    <n-icon
+                      v-else
+                      :component="MoonOutline"
+                      :size="18"
+                    />
                   </template>
-                  <template v-if="isMiniScreen"> 日间模式 </template>
+                  <template v-if="isMiniScreen">
+                    {{ appStore.isDark ? '日间模式' : '夜间模式' }}
+                  </template>
                 </n-button>
               </div>
             </div>
@@ -92,7 +100,7 @@
         <slot />
       </div>
     </div>
-    <footer class="text-white py-4 px-3 bg-gray-700">
+    <footer class="text-white py-4 px-3 bg-gray-700 dark:bg-slate-800">
       <div class="container">12312312</div>
     </footer>
   </div>

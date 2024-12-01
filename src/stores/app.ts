@@ -33,6 +33,7 @@ export default defineStore('app', () => {
   });
 
   const isDark = useDark();
+  const toggleDarkFn = useToggle(isDark);
 
   return {
     isDark,
@@ -41,6 +42,7 @@ export default defineStore('app', () => {
     paused: pausedRef,
     breakpoints: breakpointsRef,
 
+    toggleDark: toggleDarkFn,
     start: startFn,
     finish: finishFn,
     register: registerFn,
