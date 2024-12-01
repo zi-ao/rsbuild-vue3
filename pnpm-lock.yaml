@@ -11,6 +11,9 @@ importers:
       '@unocss/reset':
         specifier: ^0.64.1
         version: 0.64.1
+      '@vicons/ionicons5':
+        specifier: ^0.12.0
+        version: 0.12.0
       '@vueuse/core':
         specifier: ^11.3.0
         version: 11.3.0(vue@3.5.13(typescript@5.7.2))
@@ -32,6 +35,9 @@ importers:
       vue:
         specifier: ^3.5.12
         version: 3.5.13(typescript@5.7.2)
+      vueuc:
+        specifier: ^0.4.64
+        version: 0.4.64(vue@3.5.13(typescript@5.7.2))
     devDependencies:
       '@biomejs/biome':
         specifier: ^1.9.3
@@ -60,6 +66,9 @@ importers:
       '@unocss/postcss':
         specifier: ^0.64.1
         version: 0.64.1(postcss@8.4.49)
+      '@unocss/preset-rem-to-px':
+        specifier: ^0.64.1
+        version: 0.64.1
       lint-staged:
         specifier: ^15.2.10
         version: 15.2.10
@@ -949,6 +958,9 @@ packages:
   '@unocss/preset-mini@0.64.1':
     resolution: {integrity: sha512-tl+ciN0elB9eETEVZQrNaMy4NpbLdWDVW7KlmpRZi4Eomf/Ntz+Wctp5V0aBvszo8arEaDiOwsgMxITvx9Ll6Q==}
 
+  '@unocss/preset-rem-to-px@0.64.1':
+    resolution: {integrity: sha512-21mg6mjLUN4iMACxMAzTV+c2HTOPyLXjTZB9/DcWYspwIECLbKL7Ly2pSqjeebUi2zvsp345cEwiEgRLp8gyRw==}
+
   '@unocss/preset-tagify@0.64.1':
     resolution: {integrity: sha512-xBGF7usHIDOMmLEgawpgbOAoNZ8qFZ/mpbRG9tdEjOHJ+rXJuJlZHhwIgwjQiFRCzSRtlsN57/iM37bZNRCEAg==}
 
@@ -987,6 +999,9 @@ packages:
     resolution: {integrity: sha512-DIvl7Mofc5Q6kKElMRALbH33xBYb5w3Yf7TQ860lmi3DOwjEcg+OWE1HD+iDf7IxZeqPsdF17NvJJaSdmr0m5Q==}
     peerDependencies:
       vite: ^2.9.0 || ^3.0.0-0 || ^4.0.0 || ^5.0.0-0
+
+  '@vicons/ionicons5@0.12.0':
+    resolution: {integrity: sha512-Iy1EUVRpX0WWxeu1VIReR1zsZLMc4fqpt223czR+Rpnrwu7pt46nbnC2ycO7ItI/uqDLJxnbcMC7FujKs9IfFA==}
 
   '@vue/compiler-core@3.5.13':
     resolution: {integrity: sha512-oOdAkwqUfW1WqpwSYJce06wvt6HljgY3fGeM9NcVA1HaYOij3mZG9Rkysn0OHuyUAGMbEbARIpsG+LPVlBJ5/Q==}
@@ -3422,6 +3437,10 @@ snapshots:
       '@unocss/extractor-arbitrary-variants': 0.64.1
       '@unocss/rule-utils': 0.64.1
 
+  '@unocss/preset-rem-to-px@0.64.1':
+    dependencies:
+      '@unocss/core': 0.64.1
+
   '@unocss/preset-tagify@0.64.1':
     dependencies:
       '@unocss/core': 0.64.1
@@ -3489,6 +3508,8 @@ snapshots:
       - rollup
       - supports-color
       - vue
+
+  '@vicons/ionicons5@0.12.0': {}
 
   '@vue/compiler-core@3.5.13':
     dependencies:

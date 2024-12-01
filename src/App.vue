@@ -9,7 +9,7 @@
 <script setup lang="ts">
 const route = useRoute();
 
-const layoutName = ref('default');
+const layoutName = ref<string | null>('default');
 
 watch(
   () => route.path,

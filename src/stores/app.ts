@@ -1,3 +1,5 @@
+import breakpoints from '@/components/c-config-provider/src/breakpoints';
+
 export default defineStore('app', () => {
   const pausedRef = ref(false);
 
@@ -20,8 +22,24 @@ export default defineStore('app', () => {
     registerObj = obj;
   };
 
+  const { width, height } = useWindowSize();
+  const breakpointsRef = computed(() => {
+    const breakpointsRef: Record<string, boolean> = {};
+    for (const key in breakpoints) {
+      breakpointsRef[key] =
+        width.value >= breakpoints[key as keyof typeof breakpoints];
+    }
+    return breakpointsRef;
+  });
+
+  const isDark = useDark();
+
   return {
+    isDark,
+    windowWidth: width,
+    windowHeight: height,
     paused: pausedRef,
+    breakpoints: breakpointsRef,
 
     start: startFn,
     finish: finishFn,
